@@ -127,7 +127,7 @@ $(document).ready(function(){
                 positionError(error)
                 });
 //------------MARKER OPTIONS--------------------//
-            var markerImage = new google.maps.MarkerImage("http://localhost:5000/static/img/conference.png");
+            var markerImage = new google.maps.MarkerImage("http://localhost:5000" + DEFAULT_MARKER_ICON);
             var markerAnimation = google.maps.Animation.DROP
 
 //------------SUPER STYLED INFO BOX-------------//
@@ -173,7 +173,6 @@ $(document).ready(function(){
                 html: boxText,
                 id: id
             };
-
             var newMarker = new google.maps.Marker(markerOptions);
 
 //-------------- Creating a closure to retain the correct markerInfoOptions -------------------//
