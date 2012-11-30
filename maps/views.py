@@ -1,7 +1,7 @@
 from flask import request, render_template
 
 from maps import app, models, db
-from common.helpers import api_response
+from common.helpers import api_response, as_dict
 
 
 @app.route('/map/', methods=['POST'])
@@ -48,4 +48,8 @@ def map_markers(map_id):
 
 @app.route('/map/view/<map_id>/', methods=['GET'])
 def map_view(map_id):
-    return render_template('test.html')
+    map = models.Map.query.filter_by(id=map_id, deleted=False).first()
+    markers = [mk.as_dict() for mk in map.marker]
+    content = {'map':map.as_dict(), 'markers':markers}
+    return render_template('test.html', content=content)
+
