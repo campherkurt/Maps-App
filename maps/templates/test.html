@@ -79,6 +79,7 @@
             var ALL_MARKERS = [];
             var SEARCH_MARKER_ICON = "/static/img/star-3.png";
             var DEFAULT_MARKER_ICON = "/static/img/conference.png"
+            var MAP_OBJ;
             var coordinateArray = [
                 {% for mk in content.markers %}
                     {coordinates: new google.maps.LatLng({{ mk.coordinates.lat }}, {{ mk.coordinates.long }}), id: "{{ mk.name }}", title: "{{ mk.name }}", address_details: "{{ mk.markup|safe }}" },

@@ -12,6 +12,7 @@ $(document).ready(function(){
         set_marker_icon(ALL_MARKERS, DEFAULT_MARKER_ICON)
         if(query_marker != null) {
             query_marker.setIcon(SEARCH_MARKER_ICON);
+            MAP_OBJ.setCenter(query_marker.position);
         }
         else {
             alert('An error has occurred. Please try again.');

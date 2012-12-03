@@ -45,6 +45,7 @@ $(document).ready(function(){
         }
         var directionsRender = new google.maps.DirectionsRenderer(directionsRenderOptions);
         directionsRender.setMap(mapChurch);
+        MAP_OBJ = mapChurch;
 //--------------- END OF MAP OPTIONS--------------------------------//
 
 //--------------- Actual Route Function ----------------------------//
@@ -191,7 +192,6 @@ $(document).ready(function(){
                         google.maps.event.addListener(infoBoxObject, "domready", function() {
                             $("#" + markerObject.id).click(function(){
                                 DESTINATION_MARKER = markerObject.getPosition()
-                                //alert(DESTINATION_MARKER);
                                 if (USER_POSITION != null){
                                     getRoute(markerObject, infoBoxObject);
                                     
